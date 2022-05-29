@@ -10,10 +10,15 @@ spring:
     password: ${DB_PASSWORD}
   jackson:
     property-naming-strategy: SNAKE_CASE
-
+oauth:
+  google:
+    clientId: ${GOOGLE_CLIENT_ID}
+    clientSecret: ${GOOGLE_CLIENT_SECRET}
+    redirectUri: ${GOOGLE_REDIRECT_URL}
+    scope: ${GOOGLE_SCOPE}
 jwt:
   secret-key: ${JWT_SECRET}
   access-exp: ${JWT_ACCESS_EXP}
   refresh-exp: ${JWT_REFRESH_EXP}
-  header: ${JWT_HEADER}
-  prefix: ${JWT_PREFIX}
+server:
+  port: 8090
