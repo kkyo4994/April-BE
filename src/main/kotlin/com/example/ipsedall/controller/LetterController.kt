@@ -5,6 +5,7 @@ import com.example.ipsedall.payload.response.LetterCalendarResponse
 import com.example.ipsedall.payload.response.LetterContentResponse
 import com.example.ipsedall.payload.response.LetterResponse
 import com.example.ipsedall.service.LetterService
+import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
 import java.time.YearMonth
@@ -20,7 +21,7 @@ class LetterController(
     }
 
     @GetMapping("/{date}")
-    fun getLetter(@PathVariable date: LocalDate): LetterContentResponse? {
+    fun getLetter(@PathVariable @DateTimeFormat date: LocalDate): LetterContentResponse? {
         return letterService.getLetter(date)
     }
 
@@ -35,7 +36,7 @@ class LetterController(
     }
 
     @GetMapping("/calendar/{date}")
-    fun getCalendar(@PathVariable date: YearMonth): LetterCalendarResponse {
+    fun getCalendar(@PathVariable @DateTimeFormat date: YearMonth): LetterCalendarResponse {
         return letterService.getCalendar((date))
     }
 }
