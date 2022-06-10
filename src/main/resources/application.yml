@@ -21,4 +21,4 @@ jwt:
   access-exp: ${JWT_ACCESS_EXP}
   refresh-exp: ${JWT_REFRESH_EXP}
 server:
-  port: 8090
+  port: 8080
