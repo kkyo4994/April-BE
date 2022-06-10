@@ -1,9 +1,12 @@
 package com.example.ipsedall.controller
 
+import com.example.ipsedall.payload.response.AccessTokenResponse
 import com.example.ipsedall.payload.response.JwtTokenResponse
 import com.example.ipsedall.service.OAuthService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -23,5 +26,10 @@ class OAuthController(
     @PostMapping
     fun getOAuthToken(@RequestParam("code") code: String): JwtTokenResponse {
         return oAuthService.getOAuthToken(code)
+    }
+
+    @PutMapping
+    fun put(@RequestHeader("Refresh-Token") refreshToken: String): AccessTokenResponse {
+        return oAuthService.putToken(refreshToken)
     }
 }

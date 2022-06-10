@@ -7,9 +7,7 @@ import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-class JwtTokenProvider(
-    private  val jwtProperties: JwtProperties
-) {
+class JwtTokenProvider(private val jwtProperties: JwtProperties) {
 
     companion object {
         const val ACCESS_TOKEN_TYPE = "access_token"
