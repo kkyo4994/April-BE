@@ -21,7 +21,7 @@ class LetterController(
     }
 
     @GetMapping("/{date}")
-    fun getLetter(@PathVariable @DateTimeFormat date: LocalDate): LetterContentResponse? {
+    fun getLetter(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate): LetterContentResponse? {
         return letterService.getLetter(date)
     }
 
